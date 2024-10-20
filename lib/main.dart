@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hocflutter/demo.dart';
 import 'package:hocflutter/stack.dart';
 import 'package:hocflutter/layout.dart';
+import 'package:hocflutter/gesture.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {  // như đã nói widget cũng là một 
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), // đây là thuộc tính trong ThemeData
         useMaterial3: true, // đây là thuộc tính trong ThemeData
       ),
-      home: Layout(), //home có kiểu dữ liệu là widget nên chúng ta sẽ truyền widget để sử dụng.
+      home: GestureDemo(title: "demo gesture",), //home có kiểu dữ liệu là widget nên chúng ta sẽ truyền widget để sử dụng.
     );
   }
 }
