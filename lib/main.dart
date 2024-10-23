@@ -3,6 +3,10 @@ import 'package:hocflutter/demo.dart';
 import 'package:hocflutter/stack.dart';
 import 'package:hocflutter/layout.dart';
 import 'package:hocflutter/gesture.dart';
+import 'package:hocflutter/count.dart';
+import 'package:hocflutter/buildcontext.dart';
+import 'package:hocflutter/inheritedwidgetdemo.dart';
+import 'package:hocflutter/lifecycletextbox.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -14,14 +18,18 @@ class MyApp extends StatelessWidget {  // như đã nói widget cũng là một 
   Widget build(BuildContext context) { //build là phuong thuc cua lớp cha
     return MaterialApp( // đây là root app,nó cung cấp nhiều thuộc tính như theme, title,...
       title: 'Flutter Demo', // đây là thuộc tính trong MaterialApp.
-      theme: ThemeData(  // giống như title nhưng kiểu trả về nó khác với title,kiểu trả về là một đối tượng ThemeData
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), // đây là thuộc tính trong ThemeData
-        useMaterial3: true, // đây là thuộc tính trong ThemeData
+        theme: ThemeData(  // giống như title nhưng kiểu trả về nó khác với title,kiểu trả về là một đối tượng ThemeData
+          primarySwatch: Colors.blue,
+          textTheme: TextTheme(
+            headlineLarge: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: const Color.fromARGB(255, 255, 0, 0)),
+          bodyMedium: TextStyle(fontSize: 16, color: Colors.grey[600]), // Ví dụ cho kiểu chữ body
+        ), // đây là thuộc tính trong ThemeData // đây là thuộc tính trong ThemeData
       ),
-      home: GestureDemo(title: "demo gesture",), //home có kiểu dữ liệu là widget nên chúng ta sẽ truyền widget để sử dụng.
-    );
+      home: TextInputDemo(),
+     ); //home có kiểu dữ liệu là widget nên chúng ta sẽ truyền widget để sử dụng.
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
